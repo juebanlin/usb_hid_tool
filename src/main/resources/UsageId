@@ -1,0 +1,192 @@
+PowerPage(0x84)
+ UsageID UsageName UsageTypes Section
+ 00 Undefined
+ 01 iName SV 30.4
+ 02 PresentStatus CL 30.4
+ 03 ChangedStatus CL 30.4
+ 04 UPS CA 30.4
+ 05 PowerSupply CA 30.4
+ 06-0F Reserved
+ 10 BatterySystem CP 30.4
+ 11 BatterySystemId SV 30.4
+ 12 Battery CP 30.4
+ 13 BatteryId SV 30.4
+ 14 Charger CP 30.4
+ 15 ChargerId SV 30.4
+ 16 PowerConverter CP 30.4
+ 17 PowerConverterId SV 30.4
+ 18 OutletSystem CP 30.4
+ 19 OutletSystemId SV 30.4
+ 1A Input CP 30.4
+ 1B InputId SV 30.4
+ 1C Output CP 30.4
+ 1D OutputId SV 30.4
+ 1E Flow CP 30.4
+ 1F FlowId SV 30.4
+ 20 Outlet CP 30.4
+ 21 OutletId SV 30.4
+ 22 Gang CL/CP 30.4
+ 23 GangId SV 30.4
+ 24 PowerSummary CL/CP 30.4
+ 25 PowerSummaryId SV 30.4
+ 26-2F Reserved
+ 30 Voltage DV 30.5
+ 31 Current DV 30.5
+ 32 Frequency DV 30.5
+ 33 ApparentPower DV 30.5
+ 34 ActivePower DV 30.5
+ 35 PercentLoad DV 30.5
+ 36 Temperature DV 30.5
+ 37 Humidity DV 30.5
+ 38 BadCount DV 30.5
+ 39-3F Reserved
+ 40 ConfigVoltage SV/DV 30.6
+ 41 ConfigCurrent SV/DV 30.6
+ 42 ConfigFrequency SV/DV 30.6
+ 43 ConfigApparentPower SV/DV 30.6
+ 44 ConfigActivePower SV/DV 30.6
+ 45 ConfigPercentLoad SV/DV 30.6
+ 46 ConfigTemperature SV/DV 30.6
+ 47 ConfigHumidity SV/DV 30.6
+ 48-4F Reserved
+ 50 SwitchOnControl DV 30.7
+ 51 SwitchOffControl DV 30.7
+ 52 ToggleControl DV 30.7
+ 53 LowVoltageTransfer DV 30.7
+ 54 HighVoltageTransfer DV 30.7
+ 55 DelayBeforeReboot DV 30.7
+ 56 DelayBeforeStartup DV 30.7
+ 57 DelayBeforeShutdown DV 30.7
+ 58 Test DV 30.7
+ 59 ModuleReset DV 30.7
+ 5A AudibleAlarmControl DV 30.7
+ 5B-5F Reserved
+ 60 Present DF 30.8
+ 61 Good DF 30.8
+ 62 InternalFailure DF 30.8
+ 63 VoltagOutOfRange DF 30.8
+ 64 FrequencyOutOfRange DF 30.8
+ 65 Overload DF 30.8
+ 66 OverCharged DF 30.8
+ 67 OverTemperature DF 30.8
+ 68 ShutdownRequested DF 30.8
+ 69 ShutdownImminent DF 30.8
+ 6A-6A Reserved
+ 6B SwitchOn/Off DF 30.8
+ 6C Switchable DF 30.8
+ 6D Used DF 30.8
+ 6E Boost DF 30.8
+ 6F Buck DF 30.8
+ 70 Initialized DF 30.8
+ 71 Tested DF 30.8
+ 72 AwaitingPower DF 30.8
+ 73 CommunicationLost DF 30.8
+ 74-FC Reserved
+ FD iManufacturer SV 30.9
+ FE  iProduct    SV  30.9
+ FF  iSerialNumber SV 30.9
+ 100-FFFF Reserved
+
+BatterySystemPage(0x85)
+ UsageID UsageName UsageTypes Section
+ 00 Undefined
+ 01 SmartBatteryBatteryMode CL 31.2
+ 02 SmartBatteryBatteryStatus NAry 31.3.1
+ 03 SmartBatteryAlarmWarning NAry 31.3.2
+ 04 SmartBatteryChargerMode CL 31.6
+ 05 SmartBatteryChargerStatus CL 31.7
+ 06 SmartBatteryChargerSpecInfo CL 31.8
+ 07 SmartBatterySelectorState CL 31.1.1
+ 08 SmartBatterySelectorPresets CL 31.1.2
+ 09 SmartBatterySelectorInfo CL 31.1.3
+ 0A-0F Reserved
+ 10 OptionalMfgFunction1 DV 31.1
+ 11 OptionalMfgFunction2 DV 31.1
+ 12 OptionalMfgFunction3 DV 31.1
+ 13 OptionalMfgFunction4 DV 31.1
+ 14 OptionalMfgFunction5 DV 31.1
+ 15 ConnectionToSMBus DF 31.1.1
+ 16 OutputConnection DF 31.1.1
+ 17 ChargerConnection DF 31.1.1
+ 18 BatteryInsertion DF 31.1.1
+ 19 UseNext DF 31.1.2
+ 1A OKToUse DF 31.1.2
+ 1B BatterySupported DF 31.1.3
+ 1C SelectorRevision DF 31.1.3
+ 1D ChargingIndicator DF 31.1.3
+ 1E-27 Reserved
+ 28 ManufacturerAccess DV 31.2
+ 29 RemainingCapacityLimit DV 31.2
+ 2A RemainingTimeLimit DV 31.2
+ 2B AtRate DV 31.2
+ 2C CapacityMode DV 31.2
+ 2D BroadcastToCharger DV 31.2
+ 2E PrimaryBattery DV 31.2
+ 2F ChargeController DV 31.2
+ 30-3F Reserved
+ 40 TerminateCharge Sel 31.3.2
+ 41 TerminateDischarge Sel 31.3.2
+ 42 BelowRemainingCapacityLimit Sel 31.3.2
+ 43 RemainingTimeLimitExpired Sel 31.3.2
+ 44 Charging Sel 31.3.1
+ 45 Discharging Sel 31.3.1
+ 46 FullyCharged Sel 31.3.1
+ 47 FullyDischarged Sel 31.3.1
+ 48 ConditioningFlag DF 31.3
+ 49 AtRateOK DF 31.3
+ 4A SmartBatteryErrorCode DV 31.3
+ 4B NeedReplacement DF 31.3
+ 4C-5F Reserved
+ 60 AtRateTimeToFull DV 31.4
+ 61 AtRateTimeToEmpty DV 31.4
+ 62 AverageCurrent DV 31.4
+ 63 MaxError DV 31.4
+ 64 RelativeStateOfCharge DV 31.4
+ 65 AbsoluteStateOfCharge DV 31.4
+ 66 RemainingCapacity DV 31.4
+ 67 FullChargeCapacity DV 31.4
+ 68 RunTimeToEmpty DV 31.4
+ 69 AverageTimeToEmpty DV 31.4
+ 6A AverageTimeToFull DV 31.4
+ 6B CycleCount DV 31.4
+ 6C-7F Reserved
+ 80 BatteryPackModelLevel SV 31.5
+ 81 InternalChargeController SF 31.5
+ 82 PrimaryBatterySupport SF 31.5
+ 83 DesignCapacity SV 31.5
+ 84 SpecificationInfo SV 31.5
+ 85 ManufactureDate SV 31.5
+ 86 SerialNumber SV 31.5
+ 87 iManufacturerName SV 31.5
+ 88 iDeviceName SV 31.5
+ 89 iDeviceChemistry SV 31.5
+ 8A ManufacturerData SV 31.5
+ 8B Rechargable SV 31.5
+ 8C WarningCapacityLimit SV 31.5
+ 8D CapacityGranularity1 SV 31.5
+ 8E CapacityGranularity2 SV 31.5
+ 8F iOEMInformation SV 31.5
+ 90-BF Reserved
+ C0 InhibitCharge DF 31.6
+ C1 EnablePolling DF 31.6
+ C2 ResetToZero DF 31.6
+ C3-CF Reserved
+ D0 ACPresent DV 31.7
+ D1 BatteryPresent DV 31.7
+ D2 PowerFail DV 31.7
+ D3 AlarmInhibited DV 31.7
+ D4 ThermistorUnderRange DV 31.7
+ D5 ThermistorHot DV 31.7
+ D6 ThermistorCold DV 31.7
+ D7 ThermistorOverRange DV 31.7
+ D8 VoltageOutOfRange DV 31.7
+ D9 CurrentOutOfRange DV 31.7
+ DA CurrentNotRegulated DV 31.7
+ DB VoltageNotRegulated DV 31.7
+ DC MasterMode DV 31.7
+ DD-EF Reserved
+ F0 ChargerSelectorSupport SF 31.8
+ F1 ChargerSpec SV 31.8
+ F2 Level2 SF 31.8
+ F3 Level3 SF 31.8
+ F4-FFFF Reserved

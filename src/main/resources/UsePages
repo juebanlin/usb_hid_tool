@@ -1,0 +1,102 @@
+ PageID PageName SectionorDocument
+ 00 Undefined
+ 01 GenericDesktopPage(0x01) 4
+ 02 SimulationControlsPage(0x02) 5
+ 03 VRControlsPage(0x03) 6
+ 04 SportControlsPage(0x04) 7
+ 05 GameControlsPage(0x05) 8
+ 06 GenericDeviceControlsPage(0x06) 9
+ 07 Keyboard/KeypadPage(0x07) 10
+ 08 LEDPage(0x08) 11
+ 09 ButtonPage(0x09) 12
+ 0A OrdinalPage(0x0A) 13
+ 0B TelephonyDevicePage(0x0B) 14
+ 0C ConsumerPage(0x0C) 15
+ 0D DigitizersPage(0x0D) 16
+ 0E HapticsPage(0x0E) 17
+ 0F Physical InputDevicePage(0x0F) 18
+ 10 UnicodePage(0x10) 19
+ 11 SoCPage(0x11) 20
+ 12 EyeandHeadTrackersPage(0x12) 21
+ 13-13 Reserved
+ 14 AuxiliaryDisplayPage(0x14) 22
+ 15-1F Reserved
+ 20 SensorsPage(0x20) 23
+ 21-3F Reserved
+ 40 Medical InstrumentPage(0x40) 24
+ 41 BrailleDisplayPage(0x41) 25
+ 42-58 Reserved
+ 59 LightingAndIlluminationPage(0x59) 26
+ 5A-7F Reserved
+ 80 MonitorPage(0x80) 27
+ 81 MonitorEnumeratedPage(0x81) 28
+ 82 VESAVirtualControlsPage(0x82) 29
+ 83-83 Reserved
+ 84 PowerPage(0x84) 30
+ 85 BatterySystemPage(0x85) 31
+ 86-8B Reserved
+ 8C BarcodeScannerPage(0x8C) 3
+ 8D Scales Page (0x8D)  33
+ 8E Magnetic Stripe Reader Page (0x8E)  34
+ 8F-8F  Reserved
+ 90 Camera Control Page (0x90)  35
+ 91 Arcade Page (0x91)  36
+ 92 Gaming Device Page (0x92)   37
+ 93-F1CF    Reserved
+ FIDO Alliance Page (0xF1D0)
+ F1D1-FEFF  Reserved
+ FF00-FFFF  Vendor-defined
+
+
+
+#表格:
+ PageID  PageName                         中文说明
+ 00      Undefined                        未定义
+ 01      Generic Desktop Page (0x01)      通用桌面设备
+ 02      Simulation Controls Page (0x02)  模拟控制设备
+ 03      VR Controls Page (0x03)          虚拟现实设备
+ 04      Sport Controls Page (0x04)       运动控制设备
+ 05      Game Controls Page (0x05)        游戏控制设备
+ 06      Generic Device Controls Page (0x06) 通用设备控制
+ 07      Keyboard/Keypad Page (0x07)      键盘设备
+ 08      LED Page (0x08)                  LED设备
+ 09      Button Page (0x09)               按钮设备
+ 0A      Ordinal Page (0x0A)              序数设备
+ 0B      Telephony Device Page (0x0B)     电话设备
+ 0C      Consumer Page (0x0C)             消费者设备
+ 0D      Digitizers Page (0x0D)           数字化设备
+ 0E      Haptics Page (0x0E)              触觉设备
+ 0F      Physical Input Device Page (0x0F) 物理输入设备
+ 10      Unicode Page (0x10)              Unicode字符
+ 11      SoC Page (0x11)                  系统芯片设备
+ 12      Eye and Head Trackers Page (0x12) 眼睛和头部跟踪设备
+ 13-13   Reserved                         保留
+ 14      Auxiliary Display Page (0x14)    辅助显示设备
+ 15-1F   Reserved                         保留
+ 20      Sensors Page (0x20)              传感器设备
+ 21-3F   Reserved                         保留
+ 40      Medical Instrument Page (0x40)   医疗仪器设备
+ 41      Braille Display Page (0x41)      盲文显示设备
+ 42-58   Reserved                         保留
+ 59      Lighting And Illumination Page (0x59) 照明设备
+ 5A-7F   Reserved                         保留
+ 80      Monitor Page (0x80)              监视器设备
+ 81      Monitor Enumerated Page (0x81)   监视器枚举设备
+ 82      VESA Virtual Controls Page (0x82) VESA虚拟设备
+ 83-83   Reserved                         保留
+ 84      Power Page (0x84)                电源设备
+ 85      Battery System Page (0x85)       电池系统
+ 86-8B   Reserved                         保留
+ 8C      Barcode Scanner Page (0x8C)      条码扫描仪
+ 8D      Scales Page (0x8D)               秤设备
+ 8E      Magnetic Stripe Reader Page (0x8E) 磁条阅读器
+ 8F-8F   Reserved                         保留
+ 90      Camera Control Page (0x90)       相机设备
+ 91      Arcade Page (0x91)               街机设备
+ 92      Gaming Device Page (0x92)        游戏设备
+ 93-F1CF Reserved                         保留
+ F1D0    FIDO Alliance Page (0xF1D0)      FIDO联盟设备
+ F1D1-FEFF Reserved                       保留
+ FF00-FFFF Vendor-defined                 供应商定义
+
+
