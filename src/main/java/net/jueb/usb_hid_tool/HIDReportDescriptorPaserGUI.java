@@ -76,7 +76,6 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
         int indent = 0;
         usagePageStack.clear();
         usagePageStack.push(0); // 默认Usage Page为0
-        int lastUsagePage = 0;
         int maxLineHexLen=0;
         while (i < data.length) {
             Comment comment=new Comment();
@@ -99,6 +98,7 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
                     if (j > 0) valueHex.append(", ");
                     valueHex.append(String.format("0x%02X", b));
                 }
+                int ownerUsagePage=usagePageStack.peek();
                 comment.setPrefix(prefix);
                 comment.setbSize(bSize);
                 comment.setbTag(bTag);
@@ -106,7 +106,7 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
                 comment.setDataLen(dataLen);
                 comment.setValue(value);
                 comment.setValueHex(valueHex.toString());
-                comment.setOwnerUsagePage(lastUsagePage);
+                comment.setOwnerUsagePage(ownerUsagePage);
                 int currentIndent=indent;
                 if (comment.getTag()==BTag.COLLECTION) { // Collection
                     indent++; // 如果是Collection，下一个开始增加缩进
@@ -128,7 +128,6 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
             if (tag==BTag.USAGE_PAGE) { // Usage Page
                 usagePageStack.pop();
                 usagePageStack.push(value);
-                lastUsagePage=value;//0x05, 0x84,        // Usage Page (PowerPage) 保存0x84
             } else if (tag==BTag.PUSH) { // Push
                 usagePageStack.push(usagePageStack.peek());
             } else if (tag==BTag.POP) { // Pop
