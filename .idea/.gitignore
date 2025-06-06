@@ -1,76 +1,8 @@
-*.class
-*.log
-.mtj.tmp/
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-hs_err_pid*
-.idea
-*.iml
-!.mvn/wrapper/maven-wrapper.jar
-gradlew.bat
-
-### web ###
-.DS_Store
-node_modules
-/dist
-/target
-/logs
-/out/
-
-# local env files
-.env.local
-.env.*.local
-
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw*
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-*.iws
-*.ipr
-
-### NetBeans ###
-/build/
-/.nb-gradle/
-*.build
-*.lst
-build.sh
-README.md
-util/target
-proto/target
-config/target
-common/target
-环境相关.md
-pom.xml
-.gradle
-settings.gradle
-common/build
-proto/build
-util/build
-buildSrc/build
-config/out
-common/out
-proto/out
-util/out
-buildSrc/out
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
