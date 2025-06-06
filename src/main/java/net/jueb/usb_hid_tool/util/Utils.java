@@ -6,7 +6,14 @@ import net.jueb.usb_hid_tool.enums.*;
 public class Utils {
 
     // Input/Output/Feature属性
-    public static String getInputOutputFeature(int value) {
+
+    /**
+     * Device Class Definition for HID 1.11_hid1_11.pdf
+     * Device Class Definition for Human Interface Devices (HID) Version 1.11 page 28
+     * @param value
+     * @return
+     */
+    public static String getInputOutputFeature(BTag tag,int value) {
         StringBuilder sb = new StringBuilder();
         // Bit 0: Data (0) | Constant (1)
         sb.append((value & 0x01) == 0 ? "Data, " : "Constant, ");
@@ -22,8 +29,13 @@ public class Utils {
         sb.append((value & 0x20) == 0 ? "Preferred State, " : "No Preferred, ");
         // Bit 6: No Null position (0) | Null state (1)
         sb.append((value & 0x40) == 0 ? "No Null position, " : "Null state, ");
-        // Bit 7: Non Volatile (0) | Volatile (1)
-        sb.append((value & 0x80) == 0 ? "Non Volatile, " : "Volatile, ");
+        if(tag== BTag.INPUT){
+            // Bit 7: Reserved (0)
+            sb.append("Reserved");
+        } else if(tag== BTag.OUTPUT||tag== BTag.FEATURE){
+            // Bit 7: Non Volatile (0) | Volatile (1)
+            sb.append((value & 0x80) == 0 ? "Non Volatile, " : "Volatile, ");
+        }
         // Bit 8: Bit Field (0) | Buffered Bytes (1)
         sb.append((value & 0x100) == 0 ? "Bit Field" : "Buffered Bytes");
         return sb.toString();
@@ -188,7 +200,7 @@ public class Utils {
             case INPUT:
             case OUTPUT:
             case FEATURE:
-                return tag.getDescription()+" (" + Utils.getInputOutputFeature(value) + ")";
+                return tag.getDescription()+" (" + Utils.getInputOutputFeature(tag,value) + ")";
             case COLLECTION:
                 return tag.getDescription()+" (" + CollectionType.fromValue(value).getDescription() + ")";
             case END_COLLECTION:
