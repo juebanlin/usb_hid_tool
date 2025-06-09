@@ -18,6 +18,8 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
     // 当前解析到的Usage Page（全局变量，支持嵌套Push/Pop）
     private Deque<Integer> usagePageStack = new ArrayDeque<>();
 
+    public String hexSplitStr=", ";
+
     public HIDReportDescriptorPaserGUI() {
         setTitle("USB HID报告描述符解析器（带缩进和注释）");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -95,7 +97,7 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
                 for (int j = 0; j < dataLen; j++) {
                     int b = data[i + 1 + j] & 0xFF;
                     value |= (b << (8 * j));
-                    if (j > 0) valueHex.append(", ");
+                    if (j > 0) valueHex.append(hexSplitStr);
                     valueHex.append(String.format("0x%02X", b));
                 }
                 int ownerUsagePage=usagePageStack.peek();
@@ -169,7 +171,11 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
         line.append(indentStr);
         // 字节显示
         line.append(String.format("0x%02X", comment.getPrefix()));
-        if (comment.getDataLen() > 0) line.append(", ").append(comment.getValueHex());
+        if (comment.getDataLen() > 0){
+            line.append(hexSplitStr).append(comment.getValueHex());
+        }
+        //追加逗号,适配数组代码
+        line.append(hexSplitStr);
         return line.toString();
     }
 
