@@ -17,7 +17,7 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
 
     // 当前解析到的Usage Page（全局变量，支持嵌套Push/Pop）
     private Deque<Integer> usagePageStack = new ArrayDeque<>();
-
+    //16进制之间的间隔符
     public String hexSplitStr=", ";
 
     public HIDReportDescriptorPaserGUI() {
