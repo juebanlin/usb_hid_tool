@@ -1,4 +1,4 @@
-package net.jueb.usb_hid_tool.enums.tag;
+package net.jueb.usb_hid_tool.reportdesc.enums.tag;
 
 public enum MainTag {
     INPUT(8, "Input"),

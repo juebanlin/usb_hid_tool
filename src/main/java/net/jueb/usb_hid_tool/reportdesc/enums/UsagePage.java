@@ -1,4 +1,4 @@
-package net.jueb.usb_hid_tool.enums;
+package net.jueb.usb_hid_tool.reportdesc.enums;
 
 /**
  * HID Usage Tables 1.5_hut1_5.pdf 17页UsagePages

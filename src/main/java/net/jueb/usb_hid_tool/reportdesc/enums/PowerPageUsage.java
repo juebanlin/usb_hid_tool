@@ -1,4 +1,4 @@
-package net.jueb.usb_hid_tool.enums;
+package net.jueb.usb_hid_tool.reportdesc.enums;
 
 public enum PowerPageUsage {
     UNDEFINED(0x00, "Undefined", "未定义", ""),

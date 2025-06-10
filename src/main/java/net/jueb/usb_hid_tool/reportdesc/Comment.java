@@ -1,6 +1,6 @@
-package net.jueb.usb_hid_tool;
+package net.jueb.usb_hid_tool.reportdesc;
 
-import net.jueb.usb_hid_tool.enums.BTag;
+import net.jueb.usb_hid_tool.reportdesc.enums.BTag;
 
 public class Comment {
 

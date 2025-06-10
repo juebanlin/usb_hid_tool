@@ -1,7 +1,7 @@
-package net.jueb.usb_hid_tool.util;
+package net.jueb.usb_hid_tool.reportdesc.util;
 
-import net.jueb.usb_hid_tool.Comment;
-import net.jueb.usb_hid_tool.enums.*;
+import net.jueb.usb_hid_tool.reportdesc.Comment;
+import net.jueb.usb_hid_tool.reportdesc.enums.*;
 
 public class Utils {
 

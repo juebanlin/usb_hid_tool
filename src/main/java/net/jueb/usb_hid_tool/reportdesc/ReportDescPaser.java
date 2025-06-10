@@ -1,54 +1,22 @@
-package net.jueb.usb_hid_tool;
-import net.jueb.usb_hid_tool.enums.*;
-import net.jueb.usb_hid_tool.util.Utils;
+package net.jueb.usb_hid_tool.reportdesc;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
+import net.jueb.usb_hid_tool.reportdesc.enums.BTag;
+import net.jueb.usb_hid_tool.reportdesc.enums.BType;
+import net.jueb.usb_hid_tool.reportdesc.util.Utils;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
-/**
- * JDK11 语法
- */
-public class HIDReportDescriptorPaserGUI extends JFrame {
-    private JTextArea inputArea;
-    private JButton parseButton;
-    private JTextArea outputArea;
+public class ReportDescPaser {
 
-    // 当前解析到的Usage Page（全局变量，支持嵌套Push/Pop）
-    private Deque<Integer> usagePageStack = new ArrayDeque<>();
     //16进制之间的间隔符
-    public String hexSplitStr=", ";
+    public final static String hexSplitStr=", ";
 
-    public HIDReportDescriptorPaserGUI() {
-        setTitle("USB HID报告描述符解析器（带缩进和注释）");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(900, 600);
-
-        inputArea = new JTextArea(5, 60);
-        JScrollPane inputScroll = new JScrollPane(inputArea);
-
-        parseButton = new JButton("解析");
-
-        outputArea = new JTextArea(30, 80);
-        outputArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
-        outputArea.setEditable(false);
-        JScrollPane outputScroll = new JScrollPane(outputArea);
-
-        parseButton.addActionListener(e -> parseDescriptor());
-
-        JPanel topPanel = new JPanel(new BorderLayout());
-        topPanel.add(new JLabel("输入USB HID报告描述符(十六进制, 空格或逗号分隔):"), BorderLayout.NORTH);
-        topPanel.add(inputScroll, BorderLayout.CENTER);
-        topPanel.add(parseButton, BorderLayout.SOUTH);
-
-        getContentPane().add(topPanel, BorderLayout.NORTH);
-        getContentPane().add(outputScroll, BorderLayout.CENTER);
-    }
-
-    private void parseDescriptor() {
-        String text = inputArea.getText().trim();
-        if (text.isEmpty()) return;
+    public static String parseDescriptor(String text_input) {
+        String result="";
+        String text = text_input.trim();
+        if (text.isEmpty()) return result;
 
         String[] tokens = text.replaceAll("[,]", " ").split("\\s+");
         ArrayList<Byte> bytesList = new ArrayList<>();
@@ -59,24 +27,23 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
                 }
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "输入格式错误，请确保输入为十六进制字节，用空格或逗号分隔。");
-            return;
+            return result;
         }
         byte[] data = new byte[bytesList.size()];
         for (int i = 0; i < bytesList.size(); i++) data[i] = bytesList.get(i);
-
-        String formatted = formatHIDReportDescriptor(data);
-        outputArea.setText(formatted);
+        result = formatHIDReportDescriptor(data);
+        return result;
     }
 
-    private String formatHIDReportDescriptor(byte[] data) {
+    private static String formatHIDReportDescriptor(byte[] data) {
         int spaceNum="0XFF".length();//隔一个16进制的缩进距离
         String spaceStr=" ".repeat(spaceNum);//单个缩进距离
         List<Comment> list=new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         int i = 0;
         int indent = 0;
-        usagePageStack.clear();
+        // 当前解析到的Usage Page（全局变量，支持嵌套Push/Pop）
+        Deque<Integer> usagePageStack = new ArrayDeque<>();
         usagePageStack.push(0); // 默认Usage Page为0
         int maxLineHexLen=0;
         while (i < data.length) {
@@ -152,7 +119,7 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
      * @param comment
      * @return
      */
-    public String toString(Comment comment,int maxLineHexLen,String spaceStr){
+    public static String toString(Comment comment,int maxLineHexLen,String spaceStr){
         StringBuilder line = new StringBuilder();
         line.append(getHexStr(comment,spaceStr));
         // 对齐注释
@@ -164,7 +131,7 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
         return line.toString();
     }
 
-    private String getHexStr(Comment comment,String spaceStr){
+    private static String getHexStr(Comment comment,String spaceStr){
         //处理缩进
         String indentStr = spaceStr.repeat(Math.max(0, comment.getIndent()));
         StringBuilder line = new StringBuilder();
@@ -179,16 +146,10 @@ public class HIDReportDescriptorPaserGUI extends JFrame {
         return line.toString();
     }
 
-    private String getNoteStr(Comment comment){
+    private static String getNoteStr(Comment comment){
         StringBuilder line = new StringBuilder();
         String commentDesc = Utils.getCommentDescriptor(comment);
         line.append("// ").append(commentDesc);// 注释
         return line.toString();
     }
-
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new HIDReportDescriptorPaserGUI().setVisible(true));
-    }
 }
-

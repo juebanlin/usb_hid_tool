@@ -1,4 +1,4 @@
-package net.jueb.usb_hid_tool.enums;
+package net.jueb.usb_hid_tool.reportdesc.enums;
 
 /**
  * Device Class Definition for HID 1.11_hid1_11.pdf
